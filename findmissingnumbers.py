@@ -46,20 +46,25 @@ class Solution:
     def findMissingNumbers(self, numbers):
             numbers = numbers.sort()
             missing_nums = []
-
+            low = 0
+            high = 0
             for i in range(len(numbers)):
                 numbers[i] = int(numbers[i])
 
+            for i in range(low, high):
+                if i not in numbers:
+                     missing_nums.append(int(i))
+
+            """
             for i in range (len(numbers)-1):
                  if numbers[i+1] - numbers[i] > 1:
                      myst = numbers[i+1] - numbers[i]
                      for j in range(1, myst+1):
                           missing_nums.append(int(numbers[i] + j))
-            
+            """
+
+
             return missing_nums
-            
-            #TODO: Write code below to return an int list with the solution to the prompt.
-            pass
 
 def main():
     array = input().split(" ")
