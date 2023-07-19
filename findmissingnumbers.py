@@ -50,7 +50,7 @@ class Solution:
             for i in range(len(numbers)-1):
                 numbers[i] = int(numbers[i])
 
-            for i in range (len(numbers)-1):
+            for i in range (len(numbers)):
                  if numbers[i+1] - numbers[i] > 1:
                      myst = numbers[i+1] - numbers[i]
                      for j in range(1, myst+1):
