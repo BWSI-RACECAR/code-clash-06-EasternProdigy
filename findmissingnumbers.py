@@ -47,14 +47,14 @@ class Solution:
             numbers = numbers.sort()
             missing_nums = []
 
-            for i in range(len(numbers)-1):
+            for i in range(len(numbers)):
                 numbers[i] = int(numbers[i])
 
-            for i in range (len(numbers)):
+            for i in range (len(numbers)-1):
                  if numbers[i+1] - numbers[i] > 1:
                      myst = numbers[i+1] - numbers[i]
                      for j in range(1, myst+1):
-                          missing_nums.append(numbers[i] + j)
+                          missing_nums.append(int(numbers[i] + j))
             
             return missing_nums
             
