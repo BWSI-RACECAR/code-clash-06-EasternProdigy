@@ -52,11 +52,11 @@ class Solution:
             return 'None missing'
 
         numbers.sort() 
-        min_num = math.ciel(numbers[0])  
-        max_num = math.ciel(numbers[len(numbers) - 1]) 
+        min_num = math.ceil(numbers[0])  
+        max_num = math.ceil(numbers[len(numbers) - 1]) 
 
         for i in range(len(numbers)):
-            numbers[i] = math.ciel(numbers[i])
+            numbers[i] = math.ceil(numbers[i])
 
         missing_numbers = []
 
