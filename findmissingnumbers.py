@@ -44,12 +44,12 @@ Input: [3, 3, 3, 3, 4, 7] Output: [5, 6]
 """
 class Solution:
     def findMissingNumbers(self, numbers):
-        if not numbers:
+        if len(numbers) == 0:
             return 'Invalid input'
         elif len(numbers) == 1: 
             return 'None missing'
 
-        numbers = set(numbers.sort())  
+        numbers.sort() 
         min_num = int(numbers[0])  
         max_num = int(numbers[len(numbers) - 1]) 
 
