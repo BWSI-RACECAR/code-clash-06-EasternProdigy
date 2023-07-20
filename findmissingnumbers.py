@@ -1,3 +1,5 @@
+import math
+
 """
 Copyright MIT BWSI Autonomous RACECAR Course
 MIT License
@@ -50,8 +52,11 @@ class Solution:
             return 'None missing'
 
         numbers.sort() 
-        min_num = int(numbers[0])  
-        max_num = int(numbers[len(numbers) - 1]) 
+        min_num = math.ciel(numbers[0])  
+        max_num = math.ciel(numbers[len(numbers) - 1]) 
+
+        for i in range(len(numbers)):
+            numbers[i] = math.ciel(numbers[i])
 
         missing_numbers = []
 
