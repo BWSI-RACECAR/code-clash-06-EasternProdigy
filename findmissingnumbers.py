@@ -42,41 +42,38 @@ Input: [3, 4, 2, 1, 6, 7, 5, 9, 10] Output:[8]
 Input: [3, 3, 3, 3, 4, 7] Output: [5, 6]
 
 """
+
+
 class Solution:
     def findMissingNumbers(self, numbers):
-            numbers = numbers.sort()
-            missing_nums = []
-            low = 0
-            high = 0
-            for i in range(len(numbers)):
-                numbers[i] = int(numbers[i])
+        if len(numbers) == 0:
+            return 'Invalid input'
+        elif len(numbers) == 1:
+            return 'None missing'
 
-            for i in range(low, high):
-                if i not in numbers:
-                     missing_nums.append(int(i))
+        numbers = sorted(numbers)
+        min_num = int(numbers[0])
+        max_num = int(numbers[-1])
 
-            """
-            for i in range (len(numbers)-1):
-                 if numbers[i+1] - numbers[i] > 1:
-                     myst = numbers[i+1] - numbers[i]
-                     for j in range(1, myst+1):
-                          missing_nums.append(int(numbers[i] + j))
-            """
+        missing_numbers = []
 
+        for num in range(min_num, max_num + 1):
+            if num not in numbers:
+                missing_numbers.append(num)
 
-            return missing_nums
+        return missing_numbers
+
 
 def main():
-    array = input().split(" ")
-    for x in range (0, len(array)):
-        array[x] = float(array[x])
-
+    array = [float(x) for x in input().split()]
     tc1 = Solution()
     ans = tc1.findMissingNumbers(array)
     print(ans)
 
+
 if __name__ == "__main__":
     main()
+
     
 #listOfNumbers = [0, 3, 3, 3, 4, 7, 3]  # STEP 1: get the in input
 #print(findMissingNumbers(listOfNumbers)) # Step 2: Call a function to handle the input
