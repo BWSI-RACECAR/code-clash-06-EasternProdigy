@@ -44,35 +44,18 @@ Input: [3, 3, 3, 3, 4, 7] Output: [5, 6]
 """
 class Solution:
     def findMissingNumbers(self, numbers):
-            
+        if not numbers:
+            return 'Invalid input'
+        elif len(numbers) == 1: 
+            return 'None missing'
 
-            if len(numbers) == 0:
-                        return 'Invalid input'
-            elif len(numbers) == 1:
-                        return 'None missing'
+        numbers = set(sorted(numbers))  
+        min_num = int(min(numbers))  
+        max_num = int(max(numbers)) 
 
-            numbers = numbers.sort()
-            missing_nums = []
-            low = numbers[0]
-            high = numbers[len(numbers)-1]
-            for i in range(len(numbers)):
-                numbers[i] = int(numbers[i])
-            
+        missing_numbers = [num for num in range(min_num, max_num + 1) if num not in numbers]
 
-            for i in range(low, high):
-                if i not in numbers:
-                     missing_nums.append(int(i))
-
-            """
-            for i in range (len(numbers)-1):
-                 if numbers[i+1] - numbers[i] > 1:
-                     myst = numbers[i+1] - numbers[i]
-                     for j in range(1, myst+1):
-                          missing_nums.append(int(numbers[i] + j))
-            """
-
-
-            return missing_nums
+        return missing_numbers
 
 def main():
     array = input().split(" ")
