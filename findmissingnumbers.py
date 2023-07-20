@@ -49,11 +49,15 @@ class Solution:
         elif len(numbers) == 1: 
             return 'None missing'
 
-        numbers = set(sorted(numbers))  
-        min_num = int(min(numbers))  
-        max_num = int(max(numbers)) 
+        numbers = set(numbers.sort())  
+        min_num = int(numbers[0])  
+        max_num = int(numbers[len(numbers) - 1]) 
 
-        missing_numbers = [num for num in range(min_num, max_num + 1) if num not in numbers]
+        missing_numbers = []
+
+        for num in range(min_num, max_num + 1):
+            if num not in numbers:
+                missing_numbers.append(num)
 
         return missing_numbers
 
